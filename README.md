@@ -4,8 +4,6 @@
   password: 12345
 ```
 
-- Update Application name with `app_name` on line 28, 62, 86, 87 & also in UpperCase `APP_NAME` on line 88.
-
 ##### Initialize a DB:
 ```
 rails db:create
