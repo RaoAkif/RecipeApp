@@ -9,4 +9,8 @@ class FoodsController < ApplicationController
   def show
     @food = Food.find(params[:id])
   end
+
+  def general_shopping_list
+    @foods = Food.all
+  end
 end

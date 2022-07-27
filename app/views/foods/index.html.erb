@@ -1,11 +1,24 @@
 <h1>This is the List of Foods Page</h1>
 
 <% @foods.each do |food| %>
-  <div>
-    <%= link_to food_path(food.id) do %>
-      <p>Food Name: <%= food.name %></p>
-      <p>Mesurement Unit: <%= food.measurement_unit %></p>
-      <p>Food Price: <%= food.price %></p>
-    <% end %>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Food Name</th>
+        <th scope="col">Measurement Unit</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%= food.id %></th>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td><%= food.price %></td>
+        <td><button>Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

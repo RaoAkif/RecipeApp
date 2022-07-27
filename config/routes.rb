@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :foods, only: [:index, :show, :add]
+  resources :recipes, only: [:index, :show, :add, :public]
+
+  # Defines the root path route ("/")
+  get 'public_recipes' => 'recipes#public_recipes'
+  get 'general_shopping_list' => 'foods#general_shopping_list'
 
 end
