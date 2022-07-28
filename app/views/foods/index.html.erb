@@ -1,6 +1,8 @@
 <h1>This is the List of Foods Page</h1>
 
-<% @foods.each do |food| %>
+<button><%= link_to "Add a new Food", new_food_path %></button>
+<br>
+<br>
   <table class="table">
     <thead>
       <tr>
@@ -11,14 +13,15 @@
         <th scope="col">Actions</th>
       </tr>
     </thead>
+    <% @foods.each do |food| %>
     <tbody>
       <tr>
         <th scope="row"><%= food.id %></th>
         <td><%= food.name %></td>
         <td><%= food.measurement_unit %></td>
         <td><%= food.price %></td>
-        <td><button>Delete</button></td>
+        <td><%= link_to "Delete Food", @food, method: :delete %></td>
       </tr>
     </tbody>
+    <% end %>
   </table>
-<% end %>
