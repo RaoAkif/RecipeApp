@@ -1,9 +1,9 @@
 <h1>This is the List of Foods Page</h1>
 
-<button><%= link_to "Add a new Food", new_food_path %></button>
+<button><%= link_to "Add a new Food", new_user_food_path %></button>
 <br>
 <br>
-  <table class="table">
+  <table class="table" border-collapse = "collapse">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -20,7 +20,7 @@
         <td><%= food.name %></td>
         <td><%= food.measurement_unit %></td>
         <td><%= food.price %></td>
-        <td><%= link_to "Delete Food", @food, method: :delete %></td>
+        <td><%= button_to "Delete Food", user_food_path(params[:user_id], food), method: :delete %></td>
       </tr>
     </tbody>
     <% end %>

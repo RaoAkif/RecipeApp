@@ -1,6 +1,4 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: %i[edit update show destroy]
-
   def index
     @foods = Food.all
   end
@@ -11,12 +9,13 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-    @food.user = current_user
+    @food.user_id = current_user.id
+
     if @food.save
       flash[:notice] = 'Food was successfully created'
-      redirect_to foods_path(@food)
+      redirect_to user_foods_path(current_user)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -24,21 +23,18 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
   end
 
-  def general_shopping_list
-    @foods = Food.all
-  end
+  # def general_shopping_list
+  #   @foods = Food.all
+  # end
 
   def destroy
+    @food = Food.find(params[:id])
     @food.destroy
     flash[:notice] = 'Food was successfully deleted'
-    redirect_to foods_path(@food)
+    redirect_to user_foods_path(params[:user_id])
   end
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
-  end
-
-  def set_food
-    @food = Food.find(params[:id])
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 end
