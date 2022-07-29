@@ -23,9 +23,9 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
   end
 
-  # def general_shopping_list
-  #   @foods = Food.all
-  # end
+  def shopping_list
+    @foods = Food.all
+  end
 
   def destroy
     @food = Food.find(params[:id])
