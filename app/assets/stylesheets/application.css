@@ -14,6 +14,10 @@
  *= require_self
  */
 
+body {
+  margin: 0;
+}
+
 table,
 th,
 td {
@@ -46,4 +50,30 @@ td {
   margin: 10px;
   padding: 20px;
   text-align: justify;
+}
+
+header {
+  background-color: gray;
+  height: 50px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: -16px;
+  padding: 8px;
+}
+
+.nav-wrapper {
+  display: flex;
+  margin: 5px 20px;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  margin: 5px 20px;
+  color: black;
+  font-weight: bold;
 }
