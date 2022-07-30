@@ -22,7 +22,7 @@
         <td><%= food.name %></td>
         <td><%= food.measurement_unit %></td>
         <td><%= food.price %></td>
-        <td><%= button_to "Delete Food", user_food_path(params[:user_id], food), method: :delete %></td>
+        <td><%= button_to "Delete Food", user_food_path(:user_id, :id), method: :delete %></td>
       </tr>
     </tbody>
     <% end %>
