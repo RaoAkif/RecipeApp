@@ -26,12 +26,12 @@ RSpec.describe Recipe, type: :model do
   end
 
   it 'name should have less than 50 characters but greater than 3 characters' do
-    subject.name = 'a' * 60 && subject.name = 'a' * 2
+    subject.name = ('a' * 60) && subject.name = 'a' * 2
     expect(subject).to_not be_valid
   end
 
   it 'description should have less than 300 characters but greater than 10 characters' do
-    subject.description = 'a' * 350 && subject.description = 'a' * 9
+    subject.description = ('a' * 350) && subject.description = 'a' * 9
     expect(subject).to_not be_valid
   end
 end

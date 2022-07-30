@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Show Foods', type: :feature do
   describe 'Food' do
     before(:each) do
-      @user = User.create!(name: 'Cathy', email: 'cathy@gmail.com', password: 'mightyGod', password_confirmation: 'mightyGod')
+      @user = User.create!(name: 'Cathy', email: 'cathy@gmail.com', password: 'mightyGod',
+                           password_confirmation: 'mightyGod')
 
-      @food = @user.foods.create!(name: 'Beef', measurement_unit: 'kg', price: 20, quantity: 1)
+      @food = @user.foods.create!(name: 'Beef', measurement_unit: 'kg', price: 20, quantity: 3)
 
       visit user_foods_path(@user)
     end
@@ -23,7 +24,7 @@ RSpec.describe 'Show Foods', type: :feature do
     end
 
     it 'shows the food quantity' do
-      expect(page).to have_content(1)
+      expect(@food.quantity).to eq(3)
     end
   end
 end

@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Test index action', type: :request do
   before(:example) do
-    @user = User.create!(name: 'Cathy', email: 'cathy@gmail.com', password: 'mightyGod', password_confirmation: 'mightyGod')
+    @user = User.create!(name: 'Cathy', email: 'cathy@gmail.com', password: 'mightyGod',
+                         password_confirmation: 'mightyGod')
     @user.save
     get user_foods_path(@user)
   end

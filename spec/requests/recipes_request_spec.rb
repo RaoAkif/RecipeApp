@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Test index action', type: :request do
   before(:example) do
-    @user = User.create!(name: 'Cathy', email: 'cathy@gmail.com', password: 'mightyGod', password_confirmation: 'mightyGod')
+    @user = User.create!(name: 'Cathy', email: 'cathy@gmail.com', password: 'mightyGod',
+                         password_confirmation: 'mightyGod')
     @user.save
     get user_recipes_path(@user)
   end
@@ -16,9 +17,11 @@ end
 
 RSpec.describe 'Test show action', type: :request do
   before(:example) do
-    @user = User.create!(name: 'Cathy', email: 'cathy@gmail.com', password: 'mightyGod', password_confirmation: 'mightyGod')
+    @user = User.create!(name: 'Cathy', email: 'cathy@gmail.com', password: 'mightyGod',
+                         password_confirmation: 'mightyGod')
     @user.save
-    @recipe = @user.recipe.create!(name: 'Banana cake', description: 'Slice the bananas', preparation_time: 1, cooking_time: 1)
+    @recipe = @user.recipe.create!(name: 'Banana cake', description: 'Slice the bananas', preparation_time: 1,
+                                   cooking_time: 1)
     @recipe.save
     get user_recipe_path(@user, @recipe)
   end
