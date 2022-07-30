@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
 
     if @food.save
       flash[:notice] = 'Food was successfully created'
-      redirect_to user_foods_path(:user_id)
+      redirect_to user_foods_path(params[:user_id])
     else
       render :new
     end

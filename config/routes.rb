@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   # Defines the root path route ("/")
   get 'public_recipes' => 'recipes#public_recipes'
   resources :shoppings, only:[:index]
