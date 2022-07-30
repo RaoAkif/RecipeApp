@@ -84,3 +84,5 @@ end
 
 # Others
 gem 'ffi'
+
+gem 'cancancan'
